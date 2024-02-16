@@ -1,0 +1,733 @@
+@import url('https://fonts.googleapis.com/css2?family=Rum+Raisin&display=swap');
+
+*, 
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-family: 'Rum Raisin', sans-serif;
+
+    --base-background: rgb(26, 29, 34);
+    --text-color: rgb(255,202,0);
+    --light-green: rgb(215,236,206);
+    --orange-color: rgb(255,164,1);
+    --dark-orange: rgb(247, 117, 0);
+}
+
+   
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+
+
+/*  header - menu and icon */
+
+header {
+    position: fixed;
+    top: 0;
+    background-color: var(--base-background) ;
+    font-size: 18px;
+    text-transform: uppercase;
+    z-index: 2;
+    
+}
+
+header .logo {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    grid-column: span 3;
+}
+
+header .logo img {
+    width: 70px;
+    display: flex;
+    align-items: center;
+    transition: color 0.6s ease;
+}
+
+header .logo img:hover, .footer-logo a img:hover, .footer-map a img:hover  {
+    filter: brightness(0.7);
+}
+
+header a {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 10px; 
+    display: block;
+    transition: color 0.6s ease;
+}
+header a:hover, .footer-contact .contact li a:hover  {
+    color: var(--light-green);
+}
+
+header .grid {
+    align-items: center;
+    height: 80px;
+    
+    
+}
+
+header .grid .hamburger {
+    grid-column: span 8;
+    justify-self: end;
+}
+
+header .grid .navigation {
+    grid-column: span 8;
+    justify-self: end;
+}
+
+header .navigation .nav-items{
+    display: flex;
+    flex-flow: row nowrap;
+    list-style: none;
+}
+
+
+.nav-items li {
+    display: flex;
+    align-items: center;
+}
+
+.nav-items li a {
+    padding: 0.5rem;
+    position: relative;
+}
+
+.nav-items li a::before {
+    content: "";
+    width: 0%;
+    transition: all 0.5s ease;
+  }
+  
+.nav-items li a:hover::before {
+    content: "";
+    position: absolute;
+    width: 87%;
+    height: 2px;
+    background-color: var(--light-green);
+    bottom: 5px;
+}
+
+#home, #chef, #about, #menu, #contact {
+    scroll-margin-top: calc(80px + 30px);
+}
+
+header .grid .reservation {
+    grid-column: 12;
+    grid-row: 1;
+}
+
+.reservation a {
+    background-color: var(--dark-orange);
+    color: var(--base-background);
+    border-radius: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    transform: translateX(-20px);
+    transition: background-color 0.6s ease;
+}
+
+.reservation a:hover {
+    background-color: var(--light-green);
+    color: var(--base-background);
+}
+
+/* hamburger menu */
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    width: 40px;
+    cursor: pointer;
+  }
+  
+  .line-1,
+  .line-2,
+  .line-3 {
+    width: 100%;
+    height: 3px;
+    border-radius: 50px;
+    background-color: var(--text-color);
+    transition: all 0.3s ease;
+  }
+  
+  .line-1-active {
+    transform: rotate(-45deg) translateY(5px);
+  }
+  
+  .line-2-active {
+    display: none;
+  }
+  
+  .line-3-active {
+    transform: rotate(45deg) translateY(-5px);
+  }
+
+
+    
+
+    /* header and main grid  */
+
+.grid {
+    display: grid;
+    width: 90%;
+    max-width: 1400px;
+    height: auto;
+    margin: 0 auto;
+    grid-template-columns: repeat(12, 1fr) ;
+    grid-template-rows: auto;
+    gap: 30px;
+   
+  }
+
+    /* design line  */
+
+
+.design-line, .design-line img{
+        height: 30px;
+        width: 100vw;
+        margin: 0 auto;
+        
+    }
+
+    
+
+    /* body- settings */
+
+    body {
+        background-color: var(--base-background);
+    }
+
+
+    /* banner */
+
+    .banner {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        width: 90%;
+        max-width: 1400px;
+        height: auto;
+        min-height: 80vh;
+        margin-inline: auto;
+        margin-top: calc(80px + 30px);
+        padding-block: 1rem;
+       
+    }
+
+    /* banner section / chef introduction section / restaurant describe section / section selection */
+    
+    .banner .item1, .grid .item1 {
+        color: var(--text-color);
+        place-self: center;
+        min-width: 250px;
+        min-height: 50%;
+        display: grid;
+        gap: 30px;
+        border: 1px solid var(--text-color);
+        padding: 1rem;
+        border-radius: 4%;
+        box-shadow: 10px 10px 30px black;
+        
+      
+    }
+
+    .banner .item-left, .grid .item-left {
+        grid-area: 1 / 1 / 5 / 7;
+    }
+
+    
+    .banner .item1 h1 {
+        font-size: 3rem;
+    }
+
+    .banner .item1 h2, .grid .item1 h2 {
+        font-size: 2rem;
+        background-color: var(--text-color);
+        color: var(--base-background);
+        border-radius: 4%;
+        place-self: start;
+        padding: 0.5rem;
+            
+    }
+
+    .banner .item1 p, .grid .item1 p {
+        font-size: 1.5rem;
+    }
+
+    .banner .item2, .grid .item2 {
+        min-width: 300px;
+        place-self: center;
+    } 
+
+    .banner .item-right, .grid .item-right {
+        grid-area: 1 / 8 / 5 / 13;
+    }
+
+    .banner .item2 .banner-pic {
+        border-radius: 50%;
+        
+        
+    }
+
+    .banner .item2 .banner-pic, .grid .item2 .item2-pic {
+        width: 100%;
+        height: auto;
+        min-width: 250px;
+        min-height: 50%;
+        box-shadow: 10px 10px 30px;
+    }
+
+    .grid .item2 .item2-pic {
+        border-radius: 4%;
+
+    }
+
+    /* Banner animation */
+
+    .banner-animation-wrapper {
+        width: 100vw;
+        height: auto;
+        position: relative;
+        margin: 0;
+        overflow: hidden;        
+    }
+
+    .banner-animation img {
+        position: absolute;
+        width: 10%;
+    }
+
+    #paprika-red {
+        top: 18%;
+        left: 5%;
+    }
+
+    #paprika-big-red {
+        bottom: 1%;
+        left: 23%;
+        width: 8%;
+    }
+
+    #paprika-green {
+        top: 16%;
+        left: 48%;
+    }
+
+    #tomato-bottom{
+        bottom: 0;
+        left: 45%;
+    }
+
+    #tomato-right{
+        right: 0;
+        top: 15%;
+    }
+
+    #avocado{
+        bottom: 0;
+        right: 0;
+    }
+
+    #plant-top{
+        left: 25%;
+        top: 13%;
+    }
+
+    #plant-left{
+        left: 0;
+        bottom: 0;
+    }
+
+    /* chef & restaurant introduction */
+
+
+    .introduction {
+        padding-block: 4rem;
+    }
+    
+    .introduction-ul {
+        list-style: none;
+        font-size: 1.2rem;
+        font-weight: bold;
+        background-color: var(--dark-orange);
+        color: var(--base-background);
+        border-radius: 4%;
+        place-self: start;
+        padding: 0.5rem;
+        
+    }
+
+     /* Pictures section */
+
+     .pictures-section {
+        background-color: var(--base-background);
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        overflow: hidden;
+        position: relative;
+        margin: 0;
+        height: auto;        
+    }
+    
+     #pics-top, #pics-bottom {
+        display: flex;
+        gap: 1rem;
+        position: relative;
+        height: 300px;
+     }  
+
+     #pics-top{
+        margin-top: 4rem;
+        top: 0;
+        left: -7%;
+    }
+    
+    #pics-bottom{
+        margin-bottom: 4rem;
+        bottom: 0;
+        right: 0;
+    }
+    
+    #pics-top img, #pics-bottom img {
+        width: 100%;
+        height: 100%;
+        border-radius: 4%;
+        box-shadow: 10px 10px 30px;
+        
+    }
+
+
+    /* video section */
+    
+    .video-section {
+        padding-block: 4rem;
+    }
+
+    .video-wrapper {
+        grid-area: 1 / 4 / 2 / 10;
+        
+    }
+
+    .video-wrapper video {
+       width: 100%;
+       border-radius: 4%;
+       box-shadow: 10px 10px 30px;
+    }
+
+    .video-wrapper .mp4 {
+        width: 100%;
+        min-width: 250px;
+        min-height: 50%;
+        height: auto;
+    }
+
+    .video-section h3 {
+        grid-column: span 12;
+        color: var(--text-color);
+        font-size: 1.5rem;
+        letter-spacing: 0.15rem;
+        border: 1px solid var(--text-color);
+        padding: 1rem;
+        border-radius: 4%;
+        box-shadow: 10px 10px 30px black;
+    }
+    
+    /* footer */
+
+    .footer {
+        padding-block: 4rem;
+    }
+
+    .grid .footer-logo {
+        grid-area: 1 / 1 / 3 / 5;
+        place-self: center;
+        
+    }
+
+    .grid .footer-map {
+        grid-area: 1 / 5 / 3 / 9;
+        place-self: center;
+        box-shadow: 10px 10px 30px;
+    } 
+
+    .footer-logo a, .footer-map a {
+        width: 100%;
+        
+    }
+
+    .footer-logo a img, .footer-map a img {
+        max-width: 100%;
+        max-height: 155px;
+        border-radius: 4%;        
+    }
+
+    .grid .footer-contact {
+        grid-area: 1 / 9 / 3 / 13;
+        place-self: center;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        font-size: 1.5rem;
+        border: 1px solid var(--text-color);
+        padding: 1rem;
+        border-radius: 4%;
+        box-shadow: 10px 10px 30px black;
+    }
+
+    .footer-contact .contact li {
+        list-style: none;
+    }
+
+    .footer-contact .contact li a  {
+        color: var(--text-color);
+        text-decoration: none;
+        transition: color 0.6s ease;
+    }
+
+    .footer-contact hr {
+        border: 1px solid var(--text-color);
+    }
+
+    .footer-contact .footer-copyright {
+        color: var(--text-color);
+    }
+
+@media (max-width: 1000px){
+
+    /* banner */
+    
+    .banner .item1, .grid .item1 {
+        gap: 5px;
+    }
+    .banner .item1 h1 {
+        font-size: 2.5rem;
+    }
+
+    .banner .item1 h2, .grid .item1 h2 {
+        font-size: 1.5rem;
+        
+    }
+
+    .banner .item1 p, .grid .item1 p {
+        font-size: 1rem;
+    }
+
+    /* banner animation */
+
+    .banner-animation img {
+        width: 12%;
+    }
+
+    #paprika-red {
+        top: 22%;
+    }
+
+    #paprika-big-red {
+        width: 10%;
+    }
+
+    #paprika-green {
+        top: 22%;
+    }
+
+    #tomato-right{
+        top: 20%;
+        width: 10%;
+    }
+    #plant-top{
+        top: 14%;
+    }
+
+}
+
+
+
+@media (max-width: 740px){
+
+    /* header */
+
+    header .grid  .hamburger {
+        display: flex;
+        grid-area: 1 / 4 / 1 / 9;
+    }
+
+    header .grid .navigation {
+         display: flex;    
+    }
+
+    header .grid .reservation {
+        grid-area: 1 / 9 / 1 / 13; 
+    }
+
+    header .grid .reservation a {
+        transform: translateX(0px);
+        border-radius: 40%;
+      
+    }
+
+    header .navigation .nav-items {
+        flex-flow: column nowrap;
+        z-index: 1;
+        background-color: var(--base-background);
+        width: 100%;
+        height: calc(100vh - 98px);
+        position: absolute;
+        top: 98px;
+        right: -100%;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.4s ease;
+    }
+        
+        
+    header .navigation .active {
+        right: 0;
+    }
+    header .logo {
+        margin-block: 1rem;
+    }
+
+    header .logo img {
+        width: 50px;
+    }
+
+    header .grid {
+    margin-block: auto; 
+    }
+    
+    /* design line */
+
+    .design-line, .design-line img{
+        height: 15px;
+    }
+
+    /* banner */
+
+    .banner, #home, #chef, #about, #menu, #contact {
+        scroll-margin-top: calc(80px + 15px);
+    }
+
+    .banner .item1, .grid .item1  {
+        grid-area: 1 / 1 / 3 / 13;
+        text-align: center;
+        max-width: 100%;
+        max-height: 350px;
+        gap: 0.5rem; 
+    }
+        
+    .banner .item1 h1 {
+        font-size: 2rem;
+    }
+     
+    .banner .item1 h2, .grid .item1 h2 {
+        font-size: 1.5rem;
+        place-self: center;
+    }
+     
+    .banner .item1 p, .grid .item1 p {
+        font-size: 1rem;
+    }
+
+    .banner .item2 {
+        grid-area: 3 / 1 / 5 / 13;
+        max-width: 300px;
+        max-height: 350px;
+    }
+    .grid .item2 {
+        grid-area: 3 / 1 / 5 / 13;
+        
+    }
+
+    /* banner animation  */
+
+    .banner-animation img {
+        width: 17%;
+    }
+
+    #paprika-red {
+        top: 15%;
+    }
+
+    #paprika-big-red {
+        width: 17%;
+        bottom: 35%;
+        left: 4%;
+    }
+
+    #paprika-green {
+        top: 14%;
+        left: 83%;
+        width: 13%;
+    }
+
+    #tomato-right{
+        top: 53%;
+        width: 17%;
+
+    }
+    #plant-top{
+        top: 12%;
+        left: 45%;
+    }
+
+    #tomato-bottom{
+        display: none;
+    }
+
+    /* pictures section */
+
+    #pics-top, #pics-bottom {
+        height: 150px;
+    }
+
+    #pics-top{
+        left: -150px;
+    }
+
+    /* chef & restaurant introduction */
+
+    .introduction-ul {
+        place-self: center;
+    }
+
+   /*  video section */
+    
+    .video-wrapper {
+        grid-area: 1 / 1 / 2 / 13;
+    }
+
+    .video-section h3 {
+        font-size: 1rem;
+    }
+
+    /* footer */
+
+    .grid .footer-logo {
+        grid-area: 1 / 1 / 3 / 13;
+    }
+
+    .grid .footer-map {
+        grid-area: 3 / 1 / 6 / 13;
+    }
+
+    .grid .footer-contact {
+        grid-area: 6 / 1 / 9 / 13;
+        font-size: 1.3rem;
+    }
+
+    }
